@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Cards</h1>
+
+<table>
+  <thead>
+    <tr>
+      <!-- <th>Url</th> -->
+      <th>Tipo</th>
+      <th>Nome</th>
+      <th>Forca</th>
+      <th>Velocidade</th>
+      <th>Habilidade</th>
+      <th>Equipamento</th>
+      <th>Inteligencia</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cards.each do |card| %>
+      <tr>
+        <!-- <td><%= card.url %></td> -->
+        <td><%= card.tipo %></td>
+        <td><%= card.nome %></td>
+        <td><%= card.forca %></td>
+        <td><%= card.velocidade %></td>
+        <td><%= card.habilidade %></td>
+        <td><%= card.equipamento %></td>
+        <td><%= card.inteligencia %></td>
+        <td><%= link_to 'Show', card %></td>
+        <td><%= link_to 'Edit', edit_card_path(card) %></td>
+        <td><%= link_to 'Destroy', card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Card', new_card_path %>

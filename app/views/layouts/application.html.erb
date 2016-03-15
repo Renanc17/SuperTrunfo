@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SuperTrunfo2</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+</head>
+<body>
+
+  <div class="header">
+  <div class="menu">
+    <div class="option">
+      <a href="/">Home</a>
+    </div>
+    <div class="option">
+      <a href="/pages/play">Play</a>
+    </div>
+    <div class="option">
+      <a href="/cards/">New cards</a>
+    </div>
+    <div class="option">
+      <a href="#">More options</a>
+    </div>
+  </div>
+</div>
+
+<%= yield %>
+
+
+</body>
+</html>

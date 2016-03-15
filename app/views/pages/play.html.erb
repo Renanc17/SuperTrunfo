@@ -1,0 +1,62 @@
+
+<p style="margin: 50px 30px">
+<%# start_event %>
+<button type="button" id="start" name="button"> Start game</button>
+
+</p>
+
+
+<div id="game" style="width: 50%; text-align: center; float: left">
+<h2>You</h2>
+<p>
+  <% if @playerMount.empty? == false %>
+  <%= image_tag(@playerMount.first.url, width: '300') %>
+  <br>
+  <%= label("", "Força") %>
+  <%= radio_button("card", "", @playerMount.first.forca) %>
+  <%= label("", "Velocidade") %>
+  <%= radio_button("card", "", @playerMount.first.velocidade) %>
+  <%= label("", "Habilidade") %>
+  <%= radio_button("card", "", @playerMount.first.habilidade) %>
+  <%= label("", "Equipamento") %>
+  <%= radio_button("card", "", @playerMount.first.equipamento) %>
+  <%= label("", "Inteligência") %>
+  <%= radio_button("card", "", @playerMount.first.inteligencia) %>
+
+  <% end %>
+</p>
+
+
+<%# @playerMount.each do |card| %>
+  <%#= image_tag(card.url, width: '300') %>
+<%# end %>
+</div>
+
+<div id="game2" style="width: 50%; text-align: center; float: left">
+  <h2>CPU</h2>
+  <p>
+    <% if @cpuMount.empty? == false %>
+    <%= image_tag(@cpuMount.first.url, width: '300') %>
+
+    <% end %>
+  </p>
+</div>
+
+
+<script type="text/javascript">
+$('#game').hide();
+$('#game2').hide();
+
+// $.ajax({
+//   type: "GET",
+//   url: '/cards/1/',
+//   data: {},
+//   dataType: "script"
+// });
+
+$('#start').click(function(){
+  $('#game').show();
+  $('#game2').show();
+  $('#start').hide();
+});
+</script>

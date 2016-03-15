@@ -1,0 +1,54 @@
+<div style="float:left">
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @card.url %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @card.tipo %>
+</p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @card.nome %>
+</p>
+
+<p>
+  <strong>Forca:</strong>
+  <%= @card.forca %>
+</p>
+
+<p>
+  <strong>Velocidade:</strong>
+  <%= @card.velocidade %>
+</p>
+
+<p>
+  <strong>Habilidade:</strong>
+  <%= @card.habilidade %>
+</p>
+
+<p>
+  <strong>Equipamento:</strong>
+  <%= @card.equipamento %>
+</p>
+
+<p>
+  <strong>Inteligencia:</strong>
+  <%= @card.inteligencia %>
+</p>
+
+<%= link_to 'Edit', edit_card_path(@card) %> |
+<%= link_to 'Back', cards_path %>
+
+</div>
+
+<div style="float:left; margin-left: 50px">
+  <p>
+    <%= image_tag(@card.url, width: '300') %>
+  </p>
+</div>
