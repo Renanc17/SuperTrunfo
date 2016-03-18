@@ -1,42 +1,39 @@
 
 <p style="margin: 50px 30px">
-<%# start_event %>
-<button type="button" id="start" name="button"> Start game</button>
+<% start_event %>
+<button type="button" name="button" id="start">Start Game</button>
+
 
 </p>
 
 
-<div id="game" style="width: 50%; text-align: center; float: left">
+<div id="your_hand" style="width: 50%; text-align: center; float: left">
 <h2>You</h2>
 <p>
-  <% if @playerMount.empty? == false %>
-  <%= image_tag(@playerMount.first.url, width: '300') %>
+  <% if get_playerMount.empty? == false %>
+  <%= image_tag(@get_playerMount.first.url, width: '300') %>
   <br>
   <%= label("", "Força") %>
-  <%= radio_button("card", "", @playerMount.first.forca) %>
+  <%= radio_button("card", "", get_playerMount.first.forca) %>
   <%= label("", "Velocidade") %>
-  <%= radio_button("card", "", @playerMount.first.velocidade) %>
+  <%= radio_button("card", "", get_playerMount.first.velocidade) %>
   <%= label("", "Habilidade") %>
-  <%= radio_button("card", "", @playerMount.first.habilidade) %>
+  <%= radio_button("card", "", get_playerMount.first.habilidade) %>
   <%= label("", "Equipamento") %>
-  <%= radio_button("card", "", @playerMount.first.equipamento) %>
+  <%= radio_button("card", "", get_playerMount.first.equipamento) %>
   <%= label("", "Inteligência") %>
-  <%= radio_button("card", "", @playerMount.first.inteligencia) %>
+  <%= radio_button("card", "", get_playerMount.first.inteligencia) %>
 
   <% end %>
 </p>
 
-
-<%# @playerMount.each do |card| %>
-  <%#= image_tag(card.url, width: '300') %>
-<%# end %>
 </div>
 
-<div id="game2" style="width: 50%; text-align: center; float: left">
+<div id="cpu_hand" style="width: 50%; text-align: center; float: left">
   <h2>CPU</h2>
   <p>
-    <% if @cpuMount.empty? == false %>
-    <%= image_tag(@cpuMount.first.url, width: '300') %>
+    <% if get_cpuMount.empty? == false %>
+    <%= image_tag(@get_cpuMount.first.url, width: '300') %>
 
     <% end %>
   </p>
@@ -44,19 +41,18 @@
 
 
 <script type="text/javascript">
-$('#game').hide();
-$('#game2').hide();
+$('#your_hand').hide();
+$('#cpu_hand').hide();
+$.ajax({
+    url:'/pages/start_event',
+    type:'PUT'
 
-// $.ajax({
-//   type: "GET",
-//   url: '/cards/1/',
-//   data: {},
-//   dataType: "script"
-// });
+  });
+
 
 $('#start').click(function(){
-  $('#game').show();
-  $('#game2').show();
-  $('#start').hide();
+  $('#your_hand').show();
+  $('#cpu_hand').show();
+  // $('#start').hide();
 });
 </script>

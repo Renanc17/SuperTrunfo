@@ -1,0 +1,29 @@
+<h1>Your Turn</h1>
+
+
+<div id="your_hand" style="width: 100% !important">
+<h2>You</h2>
+<p>
+  <% if $playerMount.empty? == false %>
+  <%= image_tag($playerMount.first.url, width: '300') %>
+  <br>
+  <%= label("", "Força") %>
+  <%= radio_button("card", "", $playerMount.first.forca) %>
+  <%= label("", "Velocidade") %>
+  <%= radio_button("card", "", $playerMount.first.velocidade) %>
+  <%= label("", "Habilidade") %>
+  <%= radio_button("card", "", $playerMount.first.habilidade) %>
+  <%= label("", "Equipamento") %>
+  <%= radio_button("card", "", $playerMount.first.equipamento) %>
+  <%= label("", "Inteligência") %>
+  <%= radio_button("card", "", $playerMount.first.inteligencia) %>
+
+  <% end %>
+</p>
+<h4>Deck: <%= $playerMount.length %></h4>
+</div>
+<div style="text-align: center">
+  <a href="/plays/result">CONTINUAR</a>
+</div>
+
+<% you_play %>

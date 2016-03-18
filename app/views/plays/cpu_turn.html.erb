@@ -1,0 +1,16 @@
+<h1>CPU Turn</h1>
+<div id="your_hand" style="width: 100% !important">
+<h2>You</h2>
+<p>
+  <% if $playerMount.empty? == false %>
+  <%= image_tag($playerMount.first.url, width: '300') %>
+  <% end %>
+</p>
+<h4>Deck: <%= $playerMount.length %></h4>
+</div>
+
+<div style="text-align: center">
+  <a href="/plays/result">CONTINUAR</a>
+</div>
+
+<% cpu_plays %>

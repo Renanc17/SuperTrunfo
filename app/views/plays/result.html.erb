@@ -1,0 +1,44 @@
+
+<div id="your_hand">
+<h2>You</h2>
+<p>
+  <% if $playerMount.empty? == false %>
+  <%= image_tag($playerMount.first.url, width: '300') %>
+  <% end %>
+</p>
+<h4>Deck: <%= $playerMount.length %></h4>
+</div>
+
+<div id="cpu_hand">
+  <h2>CPU</h2>
+  <p>
+    <% if $cpuMount.empty? == false %>
+    <%= image_tag($cpuMount.first.url, width: '300') %>
+    <% end %>
+  </p>
+  <h4>Deck: <%= $cpuMount.length %></h4>
+</div>
+
+
+<div style="text-align: center">
+  <% if $myTurn %>
+  <button id="cpu_turn">CONTINUAR >></button>
+  <% else %>
+  <button id="your_turn"><< CONTINUAR</button>
+  <% end %>
+</div>
+
+
+<script type="text/javascript">
+console.log();
+  $('#cpu_turn').click(function(){
+    console.log('OK');
+    $.ajax('/plays/your_request');
+    window.location.replace("/plays/cpu_turn");
+  });
+
+  $('#your_turn').click(function(){
+    $.ajax('/plays/cpu_request');
+    window.location.replace("/plays/your_turn");
+  });
+</script>

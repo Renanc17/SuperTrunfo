@@ -1,11 +1,37 @@
 Rails.application.routes.draw do
+  get 'plays/your_turn'
+
+  get 'plays/cpu_turn'
+
+  get 'plays/result'
+
+  get 'plays/start_game'
+
+  get 'plays/start_event'
+
+  get 'plays/your_request'
+
+  get 'plays/cpu_request'
+
   resources :cards
   root 'pages#home'
 
   get 'pages/play'
 
+  get 'pages/start_event'
+
   # get 'pages/newCarta'
 
+#   resources :pages do
+#   collection do
+#     get 'start_event'
+#   end
+# end
+
+  # resources :pages do
+  # get :start_event, on: :collection
+  # # or you may prefer to call this route on: :member
+  # end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
